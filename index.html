@@ -19,11 +19,11 @@
   </head>
   <body>
     <div class="app h100vh pos-rel">
-      <img
+      <!-- <img
         class="object-fit-cover"
         src="img/trainDesktop.jpeg"
         alt="treno-su-cavalcavia"
-      />
+      /> -->
       <!-- layer per leggibilità -->
       <div class="layer h100 w100 top0-left0-of-abs"></div>
       <!-- brand logo -->
@@ -39,17 +39,18 @@
         ></div>
       </a>
       <!-- citazione intro -->
-      <div id="cit" class="title-wrap pos-abs left42 top50 pr-120">
+      <div id="cit" class="title-wrap pos-abs left42 top50">
         <h2 class="font-s2e2rem">
-          "Scenderò giù a qualche stazione pazzo di questi mutamenti di tripori
-          e linee"
+          "Scenderò giù a qualche stazione pazzo di questi mutamenti di colori e
+          di linee"
         </h2>
         <p class="my-15 font-s1rem">
           Chi ha fatto il turno di notte (Einaudi, 2012)
         </p>
         <!-- tasto cominciamo -->
         <a
-          class="btnStart inline-b cursor-pointer mb-12 cursor-pointer font-s1e4rem border-rad5 pl-15 pr-15 pt-5 pb-5"
+          href="#"
+          class="btn btnStart inline-b cursor-pointer mb-12 no-decorate font-s1e4rem border-rad5 pl-15 pr-15 pt-5 pb-5"
         >
           cominciamo!
         </a>
@@ -57,7 +58,7 @@
       <!-- BLOCCO TRATTE -->
       <!--  cit scelta tratta -->
       <p
-        class="sceltaTratta fade-in title-wrap pos-abs left42 top50 pr-120 font-s1e5rem line-h1e8rem"
+        class="sceltaTratta fade-in title-wrap pos-abs left42 top50 font-s1e5rem line-h1e8rem"
       >
         "Vai oltre il comune viaggio, "the locomotive experience" è un
         intinerario che trascende il tempo incastonato tra i paesaggi bucolici
@@ -65,7 +66,7 @@
       </p>
       <!-- contenitore laterale delle tratte -->
       <section
-        class="sceltaTratta fade-in flex-y align-items-center space-around top0-left0-of-abs h100vh w25vw font-s1e7rem"
+        class="sceltaTratta fade-in flex-y align-items-center space-around top0-left0-of-abs h100 w25vw font-s1e7rem"
       >
         <p class="line-h2e2rem font-w600">SCEGLI LA TRATTA:</p>
         <!-- PethGlasgow‎ -->
@@ -97,25 +98,121 @@
           ></div>
         </div>
       </section>
-      <!-- BLOCCO NUMERO PASSEGGERI -->
-      <div
-        class="pos-abs left42 top50 pr-120 fade-in font-s2e2rem h200px"
-        id="numPasseggeriArea"
+      <!-- RICHIESTA PASSEGRI MINORI -->
+      <section
+        class="pos-abs left42 top50 fade-in font-s2e2rem h200px"
+        id="minoriSiNo"
       >
-        <label class="display-block" for="numPassenger"
-          >scrivi il numero di passeggeri e premi invio</label
+        <label class="display-block mb-15"
+          >Ci sono passeggeri minorenni ?</label
+        >
+        <a
+          href="#"
+          id="siMinori"
+          class="btn inline-b cursor-pointer mb-12 no-decorate font-s1e4rem border-rad5 w60px txt-center py-4 mr-10"
+        >
+          SI
+        </a>
+        <a
+          href="#"
+          id="noMinori"
+          class="btn inline-b cursor-pointer mb-12 no-decorate font-s1e4rem border-rad5 w60px txt-center py-4 ml-20"
+        >
+          NO
+        </a>
+      </section>
+      <!-- SEZIONE NUMERO MINORI -->
+      <section
+        class="pos-abs left42 top50 fade-in font-s2e2rem h200px"
+        id="numMinPasseggeriArea"
+      >
+        <label class="display-block" for="numMinPassenger"
+          >scrivi il numero di passeggeri minori e premi invio</label
         >
         <input
+          placeholder="2"
           min="1"
           max="999"
           type="number"
           class="transparent-bg font-s2e2rem no-border no-outline w80px"
-          id="numPassenger"
+          id="numMinPassenger"
         />
-        <span class="font-s1rem red-txt" id="errorNumPass"
+        <span class="font-s1rem red-txt" id="errorNumMinPass"
           >Puoi inserire solo numeri in questo campo</span
         >
-      </div>
+      </section>
+      <!-- RICHIESTA PASSEGGERI ANZIANI -->
+      <section
+        class="pos-abs left42 top50 fade-in font-s2e2rem h200px"
+        id="vecchiSiNo"
+      >
+        <label class="display-block mb-15">Ci sono passeggeri over 65 ?</label>
+        <a
+          href="#"
+          id="siVecchi"
+          class="btn inline-b cursor-pointer mb-12 no-decorate font-s1e4rem border-rad5 w60px txt-center py-4 mr-10"
+        >
+          SI
+        </a>
+        <a
+          href="#"
+          id="noVecchi"
+          class="btn inline-b cursor-pointer mb-12 no-decorate font-s1e4rem border-rad5 w60px txt-center py-4 ml-20"
+        >
+          NO
+        </a>
+      </section>
+      <!-- SEZIONE NUMERO ANZIANI -->
+      <section
+        class="pos-abs left42 top50 fade-in font-s2e2rem h200px"
+        id="numVecchiPasseggeriArea"
+      >
+        <label class="display-block" for="numVecchiPassenger"
+          >scrivi il numero di passeggeri over 65 e premi invio</label
+        >
+        <input
+          placeholder="2"
+          min="1"
+          max="999"
+          type="number"
+          class="transparent-bg font-s2e2rem no-border no-outline w80px"
+          id="numVecchiPassenger"
+        />
+        <span class="font-s1rem red-txt" id="errorNumVecchiPass"
+          >Puoi inserire solo numeri in questo campo</span
+        >
+      </section>
+      <!-- BLOCCO NUMERO PASSEGGERI MEDI -->
+      <section
+        class="pos-abs left42 top50 fade-in font-s2e2rem h200px"
+        id="numPasseggeriArea"
+      >
+        <label class="display-block" for="numPassenger">
+          numero di passeggeri tra i 18 e 65 anni?
+        </label>
+        <div class="flex space-around mt-15">
+          <div class="pos-rel w160px">
+            <a
+              class="btn pos-abs left0 top0 inline-b cursor-pointer mb-12 no-decorate font-s1e4rem border-rad5 pl-15 pr-15 pt-5 pb-5"
+              id="minus"
+            >
+              -
+            </a>
+            <p class="centerX-of-abs top0" id="counter">0</p>
+            <a
+              class="btn pos-abs right0 top0 inline-b cursor-pointer mb-12 no-decorate font-s1e4rem border-rad5 pl-15 pr-15 pt-5 pb-5"
+              id="plus"
+            >
+              +
+            </a>
+          </div>
+          <a
+            class="btn inline-b cursor-pointer mb-12 no-decorate font-s1e4rem border-rad5 pl-15 pr-15 pt-5 pb-5"
+          >
+            prosegui
+          </a>
+        </div>
+      </section>
     </div>
     <script src="main.js"></script>
   </body>
