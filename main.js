@@ -198,17 +198,17 @@ tra5min.addEventListener('click', () => {
   setInterval(upDateCountDown, 1000);
 });
 giu2021.addEventListener('click', () => {
-  var timeStampDUtente = new Date(2021, 5, 10, 13, 50, 0, 0).getTime();
+  timeStampDUtente = new Date(2021, 5, 10, 13, 50, 0, 0).getTime();
   upDateCountDown();
   setInterval(upDateCountDown, 1000);
 });
 gen2022.addEventListener('click', () => {
-  var timeStampDUtente = new Date(2022, 0, 8, 17, 10, 0, 0).getTime();
+  timeStampDUtente = new Date(2022, 0, 8, 17, 10, 0, 0).getTime();
   upDateCountDown();
   setInterval(upDateCountDown, 1000);
 });
 nov2022.addEventListener('click', () => {
-  var timeStampDUtente = new Date(2022, 10, 13, 10, 05, 0, 0).getTime();
+  timeStampDUtente = new Date(2022, 10, 13, 10, 05, 0, 0).getTime();
   upDateCountDown();
   setInterval(upDateCountDown, 1000);
 });
@@ -221,16 +221,13 @@ var countDownElement = document.getElementById('countDownElement');
 function upDateCountDown() {
   timeStampAllaChimataFunz = new Date().getTime();
   seconds = Math.floor((timeStampDUtente - timeStampAllaChimataFunz) / 1000);
-  console.log(seconds);
   //NUMERO MINUTI E SECONDI E ORE NEL COUNTDOWN
   var years = Math.floor(seconds / 60 / 60 / 24 / 365);
-  // console.log(years);
   var days = Math.floor(seconds / 60 / 60 / 24);
   var hours = Math.floor(seconds / 60 / 60);
   var minutes = Math.floor(seconds / 60);
   //NUMERO DEI SECONDI MINUTI E ORE IN MODULO SESSAGESIMALE
   var secondsInModulo = seconds % 60;
-  console.log(secondsInModulo);
   var minutes = minutes % 60;
   var hours = hours % 24;
   var days = days % 365;
@@ -240,8 +237,27 @@ function upDateCountDown() {
     secondsInModulo < 10 ? `0` + secondsInModulo : secondsInModulo;
   minutes = minutes < 10 ? `0` + minutes : minutes;
   hours = hours < 10 ? `0` + hours : hours;
-  //SCRIVERE DENTRO NUOVO MINUTAGGIO
-  countDownElement.innerHTML = `Rimangono: ${years} anni, ${days} giorni + ore/minuti/secondi &#8594; ${hours}:${minutes}:${secondsInModulo}`;
+  //   **************************************************************
+  /* Inserire "conto alla rovescia che si rinnova
+        ogni secondo nel p costruito apposta + if per sapere
+        se bisogna scrivere dentro anche anni e giorni"
+        ANNI*/
+  if (seconds > 60 * 60 * 24 * 365) {
+    var contoAllaRovescia = `${years} anni, ${days} giorni +
+            ore/minuti/secondi &#8594; ${hours}:${minutes}:${secondsInModulo}`;
+  } else if (seconds > 60 * 60 * 24) {
+    var contoAllaRovescia = `${days} giorni +
+            ore/minuti/secondi &#8594; ${hours}:${minutes}:${secondsInModulo}`;
+  } else if (seconds > 60 * 60) {
+    var contoAllaRovescia = `${hours} ore, ${minutes} minuti, ${secondsInModulo} secondi`;
+  } else if (seconds > 60) {
+    var contoAllaRovescia = `${minutes} minuti, ${secondsInModulo} secondi`;
+  } else {
+    var contoAllaRovescia = `${secondsInModulo} secondi`;
+  }
+  countDownElement.innerHTML = `tra: ${contoAllaRovescia}`;
+  //***************************************************************** */
+
   //FAR SI CHE ARRIVATO A 0 FERMI IL COUNDOWN OPPURE CONTINUI A SCALARE UN'UNITA'
   seconds > 0 ? seconds-- : clearInterval(upDateCountDown);
 }
