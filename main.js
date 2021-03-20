@@ -181,7 +181,7 @@ btnImpostatiPassegMedi.addEventListener('click', () => {
 
 // sezione scelta una delle date disponibili
 
-var timeStampDUtente;
+var seconds;
 
 // variabili delle date disponibii
 
@@ -190,25 +190,64 @@ var giu2021 = document.getElementById('giu2021');
 var gen2022 = document.getElementById('gen2022');
 var nov2022 = document.getElementById('nov2022');
 
+// otteneri i secondi mancanti alla data del viaggio
+
 tra5min.addEventListener('click', () => {
   timeStampDUtente = new Date().getTime() + 300000;
-  ticket();
+  timeStampAllaChimataFunz = new Date().getTime();
+  seconds = (timeStampDUtente - timeStampAllaChimataFunz) / 1000;
+  upDateCountDown();
+  setInterval(upDateCountDown, 1000);
 });
 giu2021.addEventListener('click', () => {
-  timeStampDUtente = new Date('June 10, 2021 13:50:00').getTime();
-  ticket();
+  var timeStampDUtente = new Date(2021, 5, 10, 13, 50, 0, 0).getTime();
+  timeStampAllaChimataFunz = new Date().getTime();
+  seconds = (timeStampDUtente - timeStampAllaChimataFunz) / 1000;
+  upDateCountDown();
+  setInterval(upDateCountDown, 1000);
 });
 gen2022.addEventListener('click', () => {
-  timeStampDUtente = new Date('January 8, 2022 17:10:00').getTime();
-  ticket();
+  var timeStampDUtente = new Date(2022, 0, 8, 17, 10, 0, 0).getTime();
+  timeStampAllaChimataFunz = new Date().getTime();
+  seconds = (timeStampDUtente - timeStampAllaChimataFunz) / 1000;
+  upDateCountDown();
+  setInterval(upDateCountDown, 1000);
 });
 nov2022.addEventListener('click', () => {
-  timeStampDUtente = new Date('November 13, 2022 10:05:00').getTime();
-  ticket();
+  var timeStampDUtente = new Date(2022, 10, 13, 10, 05, 0, 0).getTime();
+  timeStampAllaChimataFunz = new Date().getTime();
+  seconds = (timeStampDUtente - timeStampAllaChimataFunz) / 1000;
+  upDateCountDown();
+  setInterval(upDateCountDown, 1000);
 });
 
-function ticket() {
-  console.log(timeStampDUtente);
-  seconds = timeStampDUtente / 1000;
+// variabile elemento countdown
+var countDownElement = document.getElementById('countDownElement');
+
+//CHIMARE FUNZIONE SUBITO E POI OGNI SECONDO
+
+function upDateCountDown() {
   console.log(seconds);
+  //NUMERO MINUTI E SECONDI E ORE NEL COUNTDOWN
+  var years = Math.floor(seconds / 60 / 60 / 24 / 365);
+  // console.log(years);
+  var days = Math.floor(seconds / 60 / 60 / 24);
+  var hours = Math.floor(seconds / 60 / 60);
+  var minutes = Math.floor(seconds / 60);
+  //NUMERO DEI SECONDI MINUTI E ORE IN MODULO SESSAGESIMALE
+  var secondsInModulo = seconds % 60;
+  console.log(secondsInModulo);
+  var minutes = minutes % 60;
+  var hours = hours % 24;
+  var days = days % 365;
+
+  //SCRIVERE BENE I SECONDI/MINUTI/ORE CON 0 DAVANTI SE < DI 10
+  secondsInModulo =
+    secondsInModulo < 10 ? `0` + secondsInModulo : secondsInModulo;
+  minutes = minutes < 10 ? `0` + minutes : minutes;
+  hours = hours < 10 ? `0` + hours : hours;
+  //SCRIVERE DENTRO NUOVO MINUTAGGIO
+  countDownElement.innerHTML = `Rimangono: ${years} anni, ${days} giorni + ore/minuti/secondi &#8594; ${hours}:${minutes}:${secondsInModulo}`;
+  //FAR SI CHE ARRIVATO A 0 FERMI IL COUNDOWN OPPURE CONTINUI A SCALARE UN'UNITA'
+  seconds > 0 ? seconds-- : clearInterval(upDateCountDown);
 }
