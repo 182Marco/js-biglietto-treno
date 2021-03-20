@@ -29,6 +29,9 @@
 .dark-grey-txt {
   color: #606e8a;
 }
+.transparent-color {
+  color: transparent;
+}
 .red-txt {
   color: red;
 }
@@ -44,6 +47,9 @@
 }
 .hover-third-color:hover {
   color: #282828;
+}
+.hover-transparent-color:hover {
+  color: transparent;
 }
 .hover-fff-color:hover {
   color: #fff;
@@ -99,6 +105,9 @@
   background-color: #080b12;
 }
 .hover-third-color-bg:hover {
+  background-color: #282828;
+}
+.hover-transparent-bg:hover {
   background-color: #282828;
 }
 .hover-fff-color-bg:hover {
@@ -5415,7 +5424,7 @@ fastidiosi nei tag */
 /* larghezza in percentuale */
 
 .bottom0 {
-  bottom: 0%;
+  bottom: 0;
 }
 .bottom1 {
   bottom: 1%;

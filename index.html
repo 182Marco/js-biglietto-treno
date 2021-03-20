@@ -24,28 +24,97 @@
         src="img/trainDesktop.jpeg"
         alt="treno-su-cavalcavia"
       />
+      <!-- layer per leggibilità -->
       <div class="layer h100 w100 top0-left0-of-abs"></div>
+      <!-- brand logo -->
       <img class="w8 pos-abs top5 right5" src="img/logo.png" alt="logo" />
-      <div class="title-wrap pos-abs left35 top52 pr-45 fff-color">
-        <h1 class="font-s2e2rem">
-          "Scenderò giù a qualche stazione pazzo di questi mutamenti di colori e
-          linee"
-        </h1>
-        <p class="my-15 font-s1e6rem">
-          Chi ha fatto il turno di notte (Einaudi, 2012), trad. it. S. Ferrari
+      <!-- tasto strat alto sx -->
+      <a
+        href="#"
+        class="btnStart pos-abs top8 left5 no-decorate font-s1e5rem pb-3"
+      >
+        Scopri the locomotive experience
+        <div
+          class="underline w70 h5px m-auto border-rad5 cursor-pointer mt-4"
+        ></div>
+      </a>
+      <!-- citazione intro -->
+      <div id="cit" class="title-wrap pos-abs left42 top50 pr-120">
+        <h2 class="font-s2e2rem">
+          "Scenderò giù a qualche stazione pazzo di questi mutamenti di tripori
+          e linee"
+        </h2>
+        <p class="my-15 font-s1rem">
+          Chi ha fatto il turno di notte (Einaudi, 2012)
         </p>
+        <!-- tasto cominciamo -->
         <a
-          href="#"
-          id="btnStart"
-          class="inline-b no-decorate fff-color font-s1e6rem z-index-10 pb-3"
+          class="btnStart inline-b cursor-pointer mb-12 cursor-pointer font-s1e4rem border-rad5 pl-15 pr-15 pt-5 pb-5"
         >
-          <img
-            class="w20 vertical-align-sub"
-            src="img/btnImg.png"
-            alt="img-btn-train"
-          />
-          <span class="">Scopri the locomotive experience</span>
+          cominciamo!
         </a>
+      </div>
+      <!-- BLOCCO TRATTE -->
+      <!--  cit scelta tratta -->
+      <p
+        class="sceltaTratta fade-in title-wrap pos-abs left42 top50 pr-120 font-s1e5rem line-h1e8rem"
+      >
+        "Vai oltre il comune viaggio, "the locomotive experience" è un
+        intinerario che trascende il tempo incastonato tra i paesaggi bucolici
+        della Scozia
+      </p>
+      <!-- contenitore laterale delle tratte -->
+      <section
+        class="sceltaTratta fade-in flex-y align-items-center space-around top0-left0-of-abs h100vh w25vw font-s1e7rem"
+      >
+        <p class="line-h2e2rem font-w600">SCEGLI LA TRATTA:</p>
+        <!-- PethGlasgow‎ -->
+        <div class="trip cursor-pointer" id="tratta1">
+          <label class="cursor-pointer"> Perth - Glasgow‎ </label>
+          <div
+            class="underline w50 h6px m-auto border-rad5 cursor-pointer"
+          ></div>
+        </div>
+        <!-- Edimburgo‎Glasgow -->
+        <div class="trip cursor-pointer" id="tratta2">
+          <label class="cursor-pointer"> Edimburgo‎ - Glasgow‎ </label>
+          <div
+            class="underline w50 h6px m-auto border-rad5 cursor-pointer"
+          ></div>
+        </div>
+        <!-- Edimburgo‎Skye -->
+        <div class="trip cursor-pointer" id="tratta3">
+          <label class="cursor-pointer"> Edimburgo‎ - Skye </label>
+          <div
+            class="underline w50 h6px m-auto border-rad5 cursor-pointer"
+          ></div>
+        </div>
+        <!-- Arran‎Shetland -->
+        <div class="trip cursor-pointer" id="tratta4">
+          <label class="cursor-pointer"> Stiling‎ - Iverness </label>
+          <div
+            class="underline w50 h6px m-auto border-rad5 cursor-pointer"
+          ></div>
+        </div>
+      </section>
+      <!-- BLOCCO NUMERO PASSEGGERI -->
+      <div
+        class="pos-abs left42 top50 pr-120 fade-in font-s2e2rem h200px"
+        id="numPasseggeriArea"
+      >
+        <label class="display-block" for="numPassenger"
+          >scrivi il numero di passeggeri e premi invio</label
+        >
+        <input
+          min="1"
+          max="999"
+          type="number"
+          class="transparent-bg font-s2e2rem no-border no-outline w80px"
+          id="numPassenger"
+        />
+        <span class="font-s1rem red-txt" id="errorNumPass"
+          >Puoi inserire solo numeri in questo campo</span
+        >
       </div>
     </div>
     <script src="main.js"></script>

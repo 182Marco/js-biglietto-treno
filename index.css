@@ -1,15 +1,101 @@
-.layer {
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.title-wrap {
+/* FONT */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+* {
+  font-family: 'Montserrat', sans-serif;
   text-shadow: 2px 2px 4px #000000;
+  color: #eee;
 }
 
+.layer {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+/* stili bottoni all'inizio e animazione quello in alto sx */
+
+#cit .btnStart {
+  border: 1px solid #fff;
+  transition: background-color 0.3s;
+}
+#cit .btnStart:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.btnStart.pos-abs {
+  animation: tremble 2s infinite;
+}
+
+@keyframes tremble {
+  0% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  55% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.02);
+  }
+  65% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(1.02);
+  }
+  75% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.title-wrap,
 #btnStart {
   border: 0;
+  transition: box-shadow 0.2s;
 }
 
 #btnStart:hover {
   box-shadow: 0 4px 2px -2px white;
+}
+
+.trip:hover .underline,
+.btnStart.pos-abs:hover .underline {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.fade-in {
+  animation: fade-in 0.8s forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+section.sceltaTratta {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+::placeholder {
+  color: #fff;
 }
