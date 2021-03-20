@@ -181,7 +181,7 @@ btnImpostatiPassegMedi.addEventListener('click', () => {
 
 // sezione scelta una delle date disponibili
 
-var seconds;
+var timeStampDUtente;
 
 // variabili delle date disponibii
 
@@ -194,29 +194,21 @@ var nov2022 = document.getElementById('nov2022');
 
 tra5min.addEventListener('click', () => {
   timeStampDUtente = new Date().getTime() + 300000;
-  timeStampAllaChimataFunz = new Date().getTime();
-  seconds = (timeStampDUtente - timeStampAllaChimataFunz) / 1000;
   upDateCountDown();
   setInterval(upDateCountDown, 1000);
 });
 giu2021.addEventListener('click', () => {
   var timeStampDUtente = new Date(2021, 5, 10, 13, 50, 0, 0).getTime();
-  timeStampAllaChimataFunz = new Date().getTime();
-  seconds = (timeStampDUtente - timeStampAllaChimataFunz) / 1000;
   upDateCountDown();
   setInterval(upDateCountDown, 1000);
 });
 gen2022.addEventListener('click', () => {
   var timeStampDUtente = new Date(2022, 0, 8, 17, 10, 0, 0).getTime();
-  timeStampAllaChimataFunz = new Date().getTime();
-  seconds = (timeStampDUtente - timeStampAllaChimataFunz) / 1000;
   upDateCountDown();
   setInterval(upDateCountDown, 1000);
 });
 nov2022.addEventListener('click', () => {
   var timeStampDUtente = new Date(2022, 10, 13, 10, 05, 0, 0).getTime();
-  timeStampAllaChimataFunz = new Date().getTime();
-  seconds = (timeStampDUtente - timeStampAllaChimataFunz) / 1000;
   upDateCountDown();
   setInterval(upDateCountDown, 1000);
 });
@@ -227,6 +219,8 @@ var countDownElement = document.getElementById('countDownElement');
 //CHIMARE FUNZIONE SUBITO E POI OGNI SECONDO
 
 function upDateCountDown() {
+  timeStampAllaChimataFunz = new Date().getTime();
+  seconds = Math.floor((timeStampDUtente - timeStampAllaChimataFunz) / 1000);
   console.log(seconds);
   //NUMERO MINUTI E SECONDI E ORE NEL COUNTDOWN
   var years = Math.floor(seconds / 60 / 60 / 24 / 365);
