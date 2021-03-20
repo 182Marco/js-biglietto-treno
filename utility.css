@@ -203,6 +203,9 @@
 .block {
   display: block;
 }
+.inline {
+  display: inline;
+}
 .inline-b {
   display: inline-block;
 }

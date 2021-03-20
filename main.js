@@ -29,9 +29,12 @@ var numVecchiPasseggeriArea = document.getElementById(
 );
 var numVecchiPassenger = document.getElementById('numVecchiPassenger');
 var errorNumVecchiPass = document.getElementById('errorNumVecchiPass');
-// blocco munero passeggeri
+// blocco munero passeggeri èta media
 var numPasseggeriArea = document.getElementById('numPasseggeriArea');
 var numPassenger = document.querySelector('#numPassenger');
+var btnImpostatiPassegMedi = document.querySelector('#btnImpostatiPassegMedi');
+// possibili date
+var possibiliDate = document.querySelector('#possibiliDate');
 
 //situazioni non display di default dei blocchi che entrano dopo
 
@@ -43,6 +46,8 @@ numMinPasseggeriArea.style.display = 'none';
 errorNumMinPass.style.display = 'none';
 vecchiSiNo.style.display = 'none';
 numVecchiPasseggeriArea.style.display = 'none';
+errorNumVecchiPass.style.display = 'none';
+possibiliDate.style.display = 'none';
 
 // da  inizio a selziona trarra
 var i;
@@ -56,19 +61,24 @@ for (let i = 0; i < btnStart.length; i++) {
   });
 }
 
-var distance;
+var distance = 0;
+var tragitto;
 
 tratta1.addEventListener('click', () => {
-  return (distance = 123.8);
+  distance = 123.8;
+  tragitto = 'Perth-Glasgow‎';
 });
 tratta2.addEventListener('click', () => {
-  return (distance = 83.9);
+  distance = 83.9;
+  tragitto = 'Edimburgo‎-Glasgow‎‎';
 });
 tratta3.addEventListener('click', () => {
-  return (distance = 407.2);
+  distance = 407.2;
+  tragitto = 'Edimburgo‎-Skye';
 });
 tratta4.addEventListener('click', () => {
-  return (distance = 230.14);
+  distance = 230.14;
+  tragitto = 'Stiling‎-Iverness';
 });
 
 for (let i = 0; i < tratte.length; i++) {
@@ -106,22 +116,6 @@ numMinPassenger.addEventListener('keypress', () => {
   }
 });
 
-//campo che chiede quanti anziani
-
-var quantitaPasseggeriVecchi = 0;
-
-numVecchiPassenger.addEventListener('keypress', () => {
-  if (event.keyCode === 13) {
-    if (isNaN(parseInt(numVecchiPassenger.value))) {
-      errorNumVecchiPass.style.display = 'inline-block';
-    } else {
-      quantitaPasseggeriVecchi = parseInt(numVecchiPassenger.value);
-      numVecchiPasseggeriArea.style.display = 'none';
-      vecchiSiNo.style.display = 'block';
-    }
-  }
-});
-
 // opzione vecchi si
 siVecchi.addEventListener('click', () => {
   vecchiSiNo.style.display = 'none';
@@ -134,24 +128,22 @@ noVecchi.addEventListener('click', () => {
   numPasseggeriArea.style.display = 'block';
 });
 
-// si passa a inserimento numero di passeggeri
-// nascondere messsaggio err se non mettonono numero in input numero passeggeri
-// var errorNumPass = document.querySelector('#errorNumPass');
-// errorNumPass.style.display = 'none';
+//campo che chiede quanti anziani
+var quantitaPasseggeriVecchi = 0;
 
-// var quantitaPasseggeri;
+numVecchiPassenger.addEventListener('keypress', () => {
+  if (event.keyCode === 13) {
+    if (isNaN(parseInt(numVecchiPassenger.value))) {
+      errorNumVecchiPass.style.display = 'inline-block';
+    } else {
+      quantitaPasseggeriVecchi = parseInt(numVecchiPassenger.value);
+      numVecchiPasseggeriArea.style.display = 'none';
+      numPasseggeriArea.style.display = 'block';
+    }
+  }
+});
 
-// numPassenger.addEventListener('keypress', () => {
-//   if (event.keyCode === 13) {
-//     if (isNaN(parseInt(numPassenger.value))) {
-//       errorNumPass.style.display = 'inline-block';
-//     } else {
-//       quantiaPassegeri = parseInt(numPassenger.value);
-//       console.log(parseInt(numPassenger.value));
-//     }
-//   }
-// });
-
+// numero passeggeri età media
 //contatore
 
 var plus = document.getElementById('plus');
@@ -163,6 +155,7 @@ plus.addEventListener('click', () => {
   num++;
   counter.innerHTML = num;
 });
+
 minus.addEventListener('click', () => {
   if (parseInt(counter.innerText) > 0) {
     var num = parseInt(counter.innerText);
@@ -170,3 +163,52 @@ minus.addEventListener('click', () => {
     counter.innerHTML = num;
   }
 });
+
+// cliccare bottone conferma passeggeri età media
+
+var titoloDateDisponibili = document.getElementById('titoloDateDisponibili');
+var quantitaPasseggeriMedi = 0;
+
+btnImpostatiPassegMedi.addEventListener('click', () => {
+  var quantitaPasseggeriMedi = parseInt(counter.innerText);
+  numPasseggeriArea.classList.add('fade-out');
+  possibiliDate.style.display = 'block';
+  titoloDateDisponibili.innerHTML =
+    'per la tratta che hai scelto, "' +
+    tragitto +
+    '", ci sono queste date disponibili:';
+});
+
+// sezione scelta una delle date disponibili
+
+var timeStampDUtente;
+
+// variabili delle date disponibii
+
+var tra5min = document.getElementById('tra5min');
+var giu2021 = document.getElementById('giu2021');
+var gen2022 = document.getElementById('gen2022');
+var nov2022 = document.getElementById('nov2022');
+
+tra5min.addEventListener('click', () => {
+  timeStampDUtente = new Date().getTime() + 300000;
+  ticket();
+});
+giu2021.addEventListener('click', () => {
+  timeStampDUtente = new Date('June 10, 2021 13:50:00').getTime();
+  ticket();
+});
+gen2022.addEventListener('click', () => {
+  timeStampDUtente = new Date('January 8, 2022 17:10:00').getTime();
+  ticket();
+});
+nov2022.addEventListener('click', () => {
+  timeStampDUtente = new Date('November 13, 2022 10:05:00').getTime();
+  ticket();
+});
+
+function ticket() {
+  console.log(timeStampDUtente);
+  seconds = timeStampDUtente / 1000;
+  console.log(seconds);
+}

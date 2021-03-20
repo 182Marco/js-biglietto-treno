@@ -71,6 +71,7 @@
 }
 
 .trip:hover .underline,
+.date:hover .underline,
 .btnStart.pos-abs:hover .underline {
   background-color: rgba(255, 255, 255, 0.4);
 }
@@ -85,6 +86,44 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+.fade-out {
+  animation: fade-out 0.3s forwards;
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.slide-in {
+  animation: slide-in 0.3s forwards;
+}
+
+@keyframes slide-in {
+  0% {
+    left: -30%;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+.slide-to-middle {
+  animation: slide-to-middle 0.3s forwards;
+}
+
+@keyframes slide-to-middle {
+  0% {
+    left: -200%;
+  }
+  100% {
+    left: 42;
   }
 }
 
@@ -106,4 +145,16 @@ input[type='number'] {
 
 ::placeholder {
   color: #fff;
+}
+
+/* sottolineature date e animazione checkmark */
+
+li .w33 {
+  margin-left: 14%;
+}
+li i {
+  transition: transform 0.3s;
+}
+li:hover i {
+  transform: scale(1.2);
 }
