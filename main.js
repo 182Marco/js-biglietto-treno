@@ -35,6 +35,8 @@ var numPassenger = document.querySelector('#numPassenger');
 var btnImpostatiPassegMedi = document.querySelector('#btnImpostatiPassegMedi');
 // possibili date
 var possibiliDate = document.querySelector('#possibiliDate');
+// blocco presentazione biglietto
+var presentaBigliettoArea = document.querySelector('#presentaBigliettoArea');
 
 //situazioni non display di default dei blocchi che entrano dopo
 
@@ -48,6 +50,7 @@ vecchiSiNo.style.display = 'none';
 numVecchiPasseggeriArea.style.display = 'none';
 errorNumVecchiPass.style.display = 'none';
 possibiliDate.style.display = 'none';
+presentaBigliettoArea.style.display = 'none';
 
 // da  inizio a selziona trarra
 var i;
@@ -143,9 +146,7 @@ numVecchiPassenger.addEventListener('keypress', () => {
   }
 });
 
-// numero passeggeri età media
-//contatore
-
+//cotatore su numero passeggeri età media
 var plus = document.getElementById('plus');
 var minus = document.getElementById('minus');
 var counter = document.getElementById('counter');
@@ -177,6 +178,11 @@ btnImpostatiPassegMedi.addEventListener('click', () => {
     'per la tratta che hai scelto, "' +
     tragitto +
     '", ci sono queste date disponibili:';
+  /* area passeggeri display non solo 
+    quando su animazione fade out finita */
+  setTimeout(function () {
+    numPasseggeriArea.style.display = 'none';
+  }, 400);
 });
 
 // sezione scelta una delle date disponibili
@@ -194,29 +200,30 @@ var nov2022 = document.getElementById('nov2022');
 
 tra5min.addEventListener('click', () => {
   timeStampDUtente = new Date().getTime() + 300000;
-  upDateCountDown();
-  setInterval(upDateCountDown, 1000);
+  callCountDown();
 });
 giu2021.addEventListener('click', () => {
   timeStampDUtente = new Date(2021, 5, 10, 13, 50, 0, 0).getTime();
-  upDateCountDown();
-  setInterval(upDateCountDown, 1000);
+  callCountDown();
 });
 gen2022.addEventListener('click', () => {
   timeStampDUtente = new Date(2022, 0, 8, 17, 10, 0, 0).getTime();
-  upDateCountDown();
-  setInterval(upDateCountDown, 1000);
+  callCountDown();
 });
 nov2022.addEventListener('click', () => {
   timeStampDUtente = new Date(2022, 10, 13, 10, 05, 0, 0).getTime();
-  upDateCountDown();
-  setInterval(upDateCountDown, 1000);
+  callCountDown();
 });
 
 // variabile elemento countdown
 var countDownElement = document.getElementById('countDownElement');
 
 //CHIMARE FUNZIONE SUBITO E POI OGNI SECONDO
+function callCountDown() {
+  upDateCountDown();
+  setInterval(upDateCountDown, 1000);
+  ticketTemplate();
+}
 
 function upDateCountDown() {
   timeStampAllaChimataFunz = new Date().getTime();
@@ -237,7 +244,6 @@ function upDateCountDown() {
     secondsInModulo < 10 ? `0` + secondsInModulo : secondsInModulo;
   minutes = minutes < 10 ? `0` + minutes : minutes;
   hours = hours < 10 ? `0` + hours : hours;
-  //   **************************************************************
   /* Inserire "conto alla rovescia che si rinnova
         ogni secondo nel p costruito apposta + if per sapere
         se bisogna scrivere dentro anche anni e giorni"
@@ -256,8 +262,11 @@ function upDateCountDown() {
     var contoAllaRovescia = `${secondsInModulo} secondi`;
   }
   countDownElement.innerHTML = `tra: ${contoAllaRovescia}`;
-  //***************************************************************** */
-
   //FAR SI CHE ARRIVATO A 0 FERMI IL COUNDOWN OPPURE CONTINUI A SCALARE UN'UNITA'
   seconds > 0 ? seconds-- : clearInterval(upDateCountDown);
+}
+
+function ticketTemplate() {
+  possibiliDate.style.display = 'none';
+  presentaBigliettoArea.style.display = 'block';
 }

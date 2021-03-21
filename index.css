@@ -9,7 +9,12 @@
 .app {
   background-image: url('img/trainDesktop.jpeg');
   background-position: center;
-  padding-right: 3vw;
+}
+
+/* tutti i blocchi in basso a 
+destra devono lasciare margine a dx per testi */
+.pos-abs.left42.top50 {
+  padding-right: 4vw;
 }
 
 .layer {
@@ -23,9 +28,74 @@
 .btn:hover {
   background-color: rgba(255, 255, 255, 0.4);
 }
-.btn:focus {
+
+.title-wrap,
+#btnStart {
+  border: 0;
+  transition: box-shadow 0.2s;
+}
+
+#btnStart:hover {
+  box-shadow: 0 4px 2px -2px white;
+}
+
+.trip:hover .underline,
+.date:hover .underline,
+.btnStart.pos-abs:hover .underline {
   background-color: rgba(255, 255, 255, 0.4);
 }
+/* stili bottoni finali */
+#redo,
+#pay {
+  transition: background-color 0.3s;
+  border: 1px solid #fff;
+}
+#redo:hover,
+#pay:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* blocco scelta tratta tipo menu mobile con layer scuro */
+section.sceltaTratta {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+/* eliminazione delle freccette incrementa 
+  e decrementa su input di tipo number 
+   Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, 0.37);
+}
+/* sottolineature date e animazione checkmark */
+li .w33 {
+  margin-left: 14%;
+}
+/* crescita lieve checkmark 
+  quando hover su scelta date */
+li i {
+  transition: transform 0.3s;
+}
+li:hover i {
+  transform: scale(1.2);
+}
+
+/* AREA PRESENTAZIONE BIGLIETTI AREA */
+
+#presentaBigliettoArea {
+  top: 15%;
+}
+
+/* ANIMAZIONI RIUTILIZZATE E NON */
+/* animazione botttone in alto a sx */
 .btnStart.pos-abs {
   animation: tremble 2s infinite;
 }
@@ -59,23 +129,8 @@
     transform: scale(1);
   }
 }
-
-.title-wrap,
-#btnStart {
-  border: 0;
-  transition: box-shadow 0.2s;
-}
-
-#btnStart:hover {
-  box-shadow: 0 4px 2px -2px white;
-}
-
-.trip:hover .underline,
-.date:hover .underline,
-.btnStart.pos-abs:hover .underline {
-  background-color: rgba(255, 255, 255, 0.4);
-}
-
+/* animazioni ricorrenti e non 
+per entrata blocchi di testo */
 .fade-in {
   animation: fade-in 0.8s forwards;
 }
@@ -126,35 +181,25 @@
     left: 42;
   }
 }
-
-section.sceltaTratta {
-  background-color: rgba(0, 0, 0, 0.3);
+.slide-to-center {
+  animation: slide-to-center 0.3s forwards;
+}
+@keyframes slide-to-center {
+  0% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type='number'] {
-  -moz-appearance: textfield;
-}
-
-::placeholder {
-  color: #fff;
-}
-
-/* sottolineature date e animazione checkmark */
-
-li .w33 {
-  margin-left: 14%;
-}
-li i {
+/* crecita quando si va in hover
+ pulsanti finali  */
+.fa-cc-paypal,
+.fa-redo {
   transition: transform 0.3s;
 }
-li:hover i {
-  transform: scale(1.2);
+#pay:hover .fa-cc-paypal,
+#redo:hover .fa-redo {
+  transform: scale(1.12);
 }

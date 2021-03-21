@@ -244,10 +244,37 @@
             <div class="underline w33 h6px border-rad5 mb-10"></div>
           </li>
         </ul>
-        <p></p>
+      </section>
+      <!-- BLOCCO PRESENTAZIONE BIGLIETTO -->
+      <section
+        id="presentaBigliettoArea"
+        class="slide-to-center title-wrap centerX-of-abs font-s1e5rem line-h1e8rem"
+      >
+        <p class="uppercase">Il biglietto di viaggio che hai prenotato:</p>
+        <p><i class="fas fa-check mr-5"></i> tratta</p>
+        <p><i class="fas fa-check mr-5"></i> bambini</p>
+        <p><i class="fas fa-check mr-5"></i> anziani</p>
+        <p><i class="fas fa-check mr-5"></i> fascia media</p>
+        <p><i class="fas fa-check mr-5"></i> totale</p>
+        <p id="countDownElement"></p>
+        <div class="flex">
+          <div
+            id="pay"
+            class="flex-y align-items-center space-around w150px h80px p-5 mt-15 cursor-pointer border-rad5"
+          >
+            <i class="fab fa-cc-paypal display-block font-s2rem"></i>
+            <p class="txt-center font-s1rem">Acquista</p>
+          </div>
+          <div
+            id="redo"
+            class="flex-y align-items-center space-around w150px h80px p-5 mt-15 ml-30 cursor-pointer border-rad5"
+          >
+            <i class="fas fa-redo display-block font-s2rem"></i>
+            <p class="txt-center font-s1rem">ricominicia</p>
+          </div>
+        </div>
       </section>
     </div>
-    <h1 id="countDownElement" style="color: 1px solid black">00:00:00</h1>
     <script src="main.js"></script>
   </body>
 </html>
