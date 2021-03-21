@@ -60,7 +60,7 @@ for (let i = 0; i < btnStart.length; i++) {
     btnStart[1].style.display = 'none';
     cit.style.display = 'none';
     citSceltaTratta.style.display = 'block';
-    elencoSceltaTratta.style.display = 'flex';
+    elencoSceltaTratta.style.display = 'fleelemPercorso';
   });
 }
 
@@ -96,6 +96,7 @@ for (let i = 0; i < tratte.length; i++) {
 siMinori.addEventListener('click', () => {
   minoriSiNo.style.display = 'none';
   numMinPasseggeriArea.style.display = 'block';
+  numMinPassenger.focus();
 });
 
 // opzione minori no
@@ -123,6 +124,7 @@ numMinPassenger.addEventListener('keypress', () => {
 siVecchi.addEventListener('click', () => {
   vecchiSiNo.style.display = 'none';
   numVecchiPasseggeriArea.style.display = 'block';
+  numVecchiPassenger.focus();
 });
 
 // opzione vecchi no
@@ -265,8 +267,28 @@ function upDateCountDown() {
   //FAR SI CHE ARRIVATO A 0 FERMI IL COUNDOWN OPPURE CONTINUI A SCALARE UN'UNITA'
   seconds > 0 ? seconds-- : clearInterval(upDateCountDown);
 }
+// variabili degli elementi in cui inserire dati biglietto
+var elemPercorso = document.getElementById('elemPercorso');
+var elemkids = document.getElementById('elemkids');
+var elemVecchi = document.getElementById('elemVecchi');
+var elemfasciaMed = document.getElementById('elemfasciaMed');
+var elemTotale = document.getElementById('elemTotale');
 
+// funzione per inserimento dati biglietto
 function ticketTemplate() {
   possibiliDate.style.display = 'none';
   presentaBigliettoArea.style.display = 'block';
 }
+
+// redo
+var redo = document.getElementById('redo');
+
+redo.addEventListener('click', () => {
+  btnStart[0].classList.add('fade-in');
+  btnStart[1].classList.add('fade-in');
+  cit.classList.add('fade-in');
+  presentaBigliettoArea.style.display = 'none';
+  btnStart[0].style.display = 'block';
+  btnStart[1].style.display = 'inline-block';
+  cit.style.display = 'block';
+});

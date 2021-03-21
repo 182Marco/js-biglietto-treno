@@ -76,8 +76,8 @@ input[type='number'] {
   color: rgba(255, 255, 255, 0.37);
 }
 /* sottolineature date e animazione checkmark */
-li .w33 {
-  margin-left: 14%;
+li:hover .under {
+  background-color: rgba(255, 255, 255, 0.4);
 }
 /* crescita lieve checkmark 
   quando hover su scelta date */
@@ -86,12 +86,6 @@ li i {
 }
 li:hover i {
   transform: scale(1.2);
-}
-
-/* AREA PRESENTAZIONE BIGLIETTI AREA */
-
-#presentaBigliettoArea {
-  top: 15%;
 }
 
 /* ANIMAZIONI RIUTILIZZATE E NON */
@@ -186,10 +180,10 @@ per entrata blocchi di testo */
 }
 @keyframes slide-to-center {
   0% {
-    transform: translateX(-200%);
+    left: -200%;
   }
   100% {
-    transform: translateX(-50%);
+    left: 50;
   }
 }
 
@@ -201,5 +195,5 @@ per entrata blocchi di testo */
 }
 #pay:hover .fa-cc-paypal,
 #redo:hover .fa-redo {
-  transform: scale(1.12);
+  transform: scale(1.09);
 }
