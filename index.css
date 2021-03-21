@@ -56,7 +56,7 @@ destra devono lasciare margine a dx per testi */
 }
 
 /* blocco scelta tratta tipo menu mobile con layer scuro */
-section.sceltaTratta {
+ul.sceltaTratta {
   background-color: rgba(0, 0, 0, 0.3);
 }
 /* eliminazione delle freccette incrementa 
@@ -196,4 +196,114 @@ per entrata blocchi di testo */
 #pay:hover .fa-cc-paypal,
 #redo:hover .fa-redo {
   transform: scale(1.09);
+}
+
+/* MEDIA QUEIES */
+
+@media screen and (max-width: 750px) {
+  .pos-abs.left42.top50 h2,
+  p,
+  ul li,
+  .pos-abs.left42.top50 label {
+    font-size: 1.7rem;
+  }
+  .sceltaTratta.no-list-style li .cursor-pointer,
+  ul li.font-w600 {
+    font-size: 1.3rem;
+    margin-left: 10%;
+  }
+
+  .btnStart,
+  .pos-abs.left42.top50 a,
+  .cursor-pointer.date.inline-b,
+  p.font-w600.uppercase,
+  ul li i,
+  #countDownElement,
+  #play,
+  #play i,
+  #redo,
+  #redo i,
+  ul li span {
+    font-size: 1.3rem;
+  }
+  .pos-abs.left42.top50 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+  }
+  .sceltaTratta.title-wrap {
+    margin-left: 12.5vw;
+  }
+  .app {
+    background-image: url('img/trainMobile.jpeg');
+  }
+}
+@media screen and (max-width: 607px) {
+  .pos-abs.left42.top50 h2,
+  p,
+  ul li,
+  .pos-abs.left42.top50 label {
+    font-size: 1.3rem;
+  }
+  .sceltaTratta.no-list-style li .cursor-pointer,
+  ul li.font-w600 {
+    font-size: 1rem;
+    margin-left: 5%;
+  }
+
+  .btnStart,
+  .pos-abs.left42.top50 a,
+  p.font-w600.uppercase,
+  ul li i,
+  #countDownElement,
+  #play,
+  #play i,
+  #redo,
+  #redo i,
+  ul li span {
+    font-size: 1rem;
+  }
+  .cursor-pointer.date.inline-b {
+    font-size: 1rem;
+  }
+  /* il div che contiene il contatore
+  con il numero di ne bambini ne anziani */
+  .flex.space-around.mt-15 {
+    display: block;
+  }
+  #btnImpostatiPassegMedi {
+    margin-top: 40px;
+  }
+}
+@media screen and (max-width: 440px) {
+  .pos-abs.left42.top50 h2,
+  p,
+  ul li,
+  .pos-abs.left42.top50 label {
+    font-size: 1rem;
+  }
+  .sceltaTratta.no-list-style li .cursor-pointer,
+  ul li.font-w600 {
+    font-size: 0.7rem;
+    margin-left: 5%;
+  }
+  .btnStart,
+  .pos-abs.left42.top50 a,
+  .cursor-pointer.date.inline-b,
+  p.font-w600.uppercase,
+  ul li i,
+  #countDownElement,
+  #play,
+  #play i,
+  #redo,
+  #redo i,
+  ul li span {
+    font-size: 0.7rem;
+  }
+  #redo,
+  #play {
+    width: 110px;
+    height: 80px;
+  }
 }
