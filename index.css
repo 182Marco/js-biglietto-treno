@@ -81,10 +81,10 @@ li:hover .under {
 }
 /* crescita lieve checkmark 
   quando hover su scelta date */
-li i {
+#possibiliDate li i {
   transition: transform 0.3s;
 }
-li:hover i {
+#possibiliDate li:hover i {
   transform: scale(1.2);
 }
 

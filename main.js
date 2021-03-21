@@ -52,7 +52,7 @@ errorNumVecchiPass.style.display = 'none';
 possibiliDate.style.display = 'none';
 presentaBigliettoArea.style.display = 'none';
 
-// da  inizio a selziona trarra
+// da  inizio a selziona tratta
 var i;
 for (let i = 0; i < btnStart.length; i++) {
   btnStart[i].addEventListener('click', () => {
@@ -60,7 +60,7 @@ for (let i = 0; i < btnStart.length; i++) {
     btnStart[1].style.display = 'none';
     cit.style.display = 'none';
     citSceltaTratta.style.display = 'block';
-    elencoSceltaTratta.style.display = 'fleelemPercorso';
+    elencoSceltaTratta.style.display = 'flex';
   });
 }
 
@@ -173,7 +173,7 @@ var titoloDateDisponibili = document.getElementById('titoloDateDisponibili');
 var quantitaPasseggeriMedi = 0;
 
 btnImpostatiPassegMedi.addEventListener('click', () => {
-  var quantitaPasseggeriMedi = parseInt(counter.innerText);
+  quantitaPasseggeriMedi = parseInt(counter.innerText);
   numPasseggeriArea.classList.add('fade-out');
   possibiliDate.style.display = 'block';
   titoloDateDisponibili.innerHTML =
@@ -223,49 +223,46 @@ var countDownElement = document.getElementById('countDownElement');
 //CHIMARE FUNZIONE SUBITO E POI OGNI SECONDO
 function callCountDown() {
   upDateCountDown();
-  setInterval(upDateCountDown, 1000);
+  var callfunz = setInterval(upDateCountDown, 1000);
   ticketTemplate();
-}
-
-function upDateCountDown() {
-  timeStampAllaChimataFunz = new Date().getTime();
-  seconds = Math.floor((timeStampDUtente - timeStampAllaChimataFunz) / 1000);
-  //NUMERO MINUTI E SECONDI E ORE NEL COUNTDOWN
-  var years = Math.floor(seconds / 60 / 60 / 24 / 365);
-  var days = Math.floor(seconds / 60 / 60 / 24);
-  var hours = Math.floor(seconds / 60 / 60);
-  var minutes = Math.floor(seconds / 60);
-  //NUMERO DEI SECONDI MINUTI E ORE IN MODULO SESSAGESIMALE
-  var secondsInModulo = seconds % 60;
-  var minutes = minutes % 60;
-  var hours = hours % 24;
-  var days = days % 365;
-
-  //SCRIVERE BENE I SECONDI/MINUTI/ORE CON 0 DAVANTI SE < DI 10
-  secondsInModulo =
-    secondsInModulo < 10 ? `0` + secondsInModulo : secondsInModulo;
-  minutes = minutes < 10 ? `0` + minutes : minutes;
-  hours = hours < 10 ? `0` + hours : hours;
-  /* Inserire "conto alla rovescia che si rinnova
-        ogni secondo nel p costruito apposta + if per sapere
-        se bisogna scrivere dentro anche anni e giorni"
-        ANNI*/
-  if (seconds > 60 * 60 * 24 * 365) {
-    var contoAllaRovescia = `${years} anni, ${days} giorni +
+  function upDateCountDown() {
+    timeStampAllaChimataFunz = new Date().getTime();
+    seconds = Math.floor((timeStampDUtente - timeStampAllaChimataFunz) / 1000);
+    //NUMERO MINUTI E SECONDI E ORE NEL COUNTDOWN
+    var years = Math.floor(seconds / 60 / 60 / 24 / 365);
+    var days = Math.floor(seconds / 60 / 60 / 24);
+    var hours = Math.floor(seconds / 60 / 60);
+    var minutes = Math.floor(seconds / 60);
+    //NUMERO DEI SECONDI MINUTI E ORE IN MODULO SESSAGESIMALE
+    var secondsInModulo = seconds % 60;
+    var minutes = minutes % 60;
+    var hours = hours % 24;
+    var days = days % 365;
+    //SCRIVERE BENE I SECONDI/MINUTI/ORE CON 0 DAVANTI SE < DI 10
+    secondsInModulo =
+      secondsInModulo < 10 ? `0` + secondsInModulo : secondsInModulo;
+    minutes = minutes < 10 ? `0` + minutes : minutes;
+    hours = hours < 10 ? `0` + hours : hours;
+    //  if per sapere se bisogna scrivere dentro anche anni e giorni
+    if (seconds > 60 * 60 * 24 * 365) {
+      var contoAllaRovescia = `Il treno parte tra anni: ${years} ,giorni: ${days} 
             ore/minuti/secondi &#8594; ${hours}:${minutes}:${secondsInModulo}`;
-  } else if (seconds > 60 * 60 * 24) {
-    var contoAllaRovescia = `${days} giorni +
+    } else if (seconds > 60 * 60 * 24) {
+      var contoAllaRovescia = `Il treno parte tra giorni: ${days}
             ore/minuti/secondi &#8594; ${hours}:${minutes}:${secondsInModulo}`;
-  } else if (seconds > 60 * 60) {
-    var contoAllaRovescia = `${hours} ore, ${minutes} minuti, ${secondsInModulo} secondi`;
-  } else if (seconds > 60) {
-    var contoAllaRovescia = `${minutes} minuti, ${secondsInModulo} secondi`;
-  } else {
-    var contoAllaRovescia = `${secondsInModulo} secondi`;
+    } else if (seconds > 60 * 60) {
+      var contoAllaRovescia = `Alla partenza mancano ${hours} ore, ${minutes} minuti, ${secondsInModulo} secondi`;
+    } else if (seconds > 60) {
+      var contoAllaRovescia = `Minuti e secondi alla partenza: ${minutes}:${secondsInModulo} `;
+    } else if (seconds > 0) {
+      var contoAllaRovescia = `Affrettati! i secondi alla patenza: ${secondsInModulo} secondi`;
+    } else {
+      var contoAllaRovescia = `Mi spiace, il treno è partito! clicca ricomincia ed effetua una nuova prenotazione`;
+    }
+    countDownElement.innerHTML = `${contoAllaRovescia}`;
+    //FAR SI CHE ARRIVATO A 0 FERMI IL COUNDOWN OPPURE CONTINUI A SCALARE UN'UNITA'
+    seconds > 0 ? seconds-- : clearInterval(callfunz);
   }
-  countDownElement.innerHTML = `tra: ${contoAllaRovescia}`;
-  //FAR SI CHE ARRIVATO A 0 FERMI IL COUNDOWN OPPURE CONTINUI A SCALARE UN'UNITA'
-  seconds > 0 ? seconds-- : clearInterval(upDateCountDown);
 }
 // variabili degli elementi in cui inserire dati biglietto
 var elemPercorso = document.getElementById('elemPercorso');
@@ -278,6 +275,18 @@ var elemTotale = document.getElementById('elemTotale');
 function ticketTemplate() {
   possibiliDate.style.display = 'none';
   presentaBigliettoArea.style.display = 'block';
+  elemPercorso.innerHTML = tragitto + ' ' + distance + ' km';
+  elemkids.innerHTML = 'Minori: ' + quantitaPasseggeriMinori;
+  elemVecchi.innerHTML = 'Anziani: ' + quantitaPasseggeriVecchi;
+  elemfasciaMed.innerHTML = 'Adulti: ' + quantitaPasseggeriMedi;
+  var costoPerIMinori = quantitaPasseggeriMinori * 0.23 * 0.8 * distance;
+  var costoPerIVecchi = quantitaPasseggeriVecchi * 0.23 * 0.6 * distance;
+  var costoPerMedi = quantitaPasseggeriMedi * 0.23 * distance;
+  var costoT = (costoPerIMinori + costoPerIVecchi + costoPerMedi).toFixed(2);
+  elemTotale.innerHTML = 'Totale: ' + costoT;
+  if (costoT == 0) {
+    document.getElementById('pay').remove();
+  }
 }
 
 // redo

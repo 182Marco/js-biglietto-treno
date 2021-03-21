@@ -23,7 +23,7 @@
         class="object-fit-cover"
         src="img/trainDesktop.jpeg"
         alt="treno-su-cavalcavia"
-      /> -->
+      /> ??????????????????? perchè se uso object-fit sfora i 100vh ?????????????????????????????????-->
       <!-- layer per leggibilità -->
       <div class="layer h100 w100 top0-left0-of-abs"></div>
       <!-- brand logo -->
@@ -69,28 +69,28 @@
         class="sceltaTratta no-list-style slide-in flex-y align-items-center space-around top0-left0-of-abs h100 w25vw font-s1e7rem"
       >
         <li class="line-h2e2rem font-w600">SCEGLI LA TRATTA:</li>
-        <!-- PethGlasgow‎ -->
+        <!-- Perth-Glasgow‎‎ -->
         <li class="trip cursor-pointer" id="tratta1">
-          <p class="cursor-pointer">Perth - Glasgow‎</p>
+          <p class="cursor-pointer">Perth-Glasgow‎</p>
           <div
             class="underline w50 h6px m-auto border-rad5 cursor-pointer"
           ></div>
         </li>
-        <!-- Edimburgo‎Glasgow -->
+        <!-- Edimburgo‎-Glasgow‎ -->
         <li class="trip cursor-pointer" id="tratta2">
           <p class="cursor-pointer">Edimburgo‎-Glasgow‎</p>
           <div
             class="underline w50 h6px m-auto border-rad5 cursor-pointer"
           ></div>
         </li>
-        <!-- Edimburgo‎Skye -->
+        <!-- Edimburgo‎-Skye -->
         <li class="trip cursor-pointer" id="tratta3">
           <p class="cursor-pointer">Edimburgo‎-Skye</p>
           <div
             class="underline w50 h6px m-auto border-rad5 cursor-pointer"
           ></div>
         </li>
-        <!-- Arran‎Shetland -->
+        <!-- Stiling‎-Iverness -->
         <li class="trip cursor-pointer" id="tratta4">
           <p class="cursor-pointer">Stiling‎-Iverness</p>
           <div
@@ -251,26 +251,51 @@
       <!-- BLOCCO PRESENTAZIONE BIGLIETTO -->
       <section
         id="presentaBigliettoArea"
-        class="slide-to-center title-wrap center-of-abs font-s1e5rem line-h1e8rem w400px"
+        class="slide-to-center title-wrap center-of-abs font-s1e5rem line-h1e8rem"
       >
-        <p class="uppercase">Il biglietto di viaggio che hai prenotato:</p>
-        <p id="elemPercorso"><i class="fas fa-check mr-5"></i> tratta</p>
-        <p id="elemkids"><i class="fas fa-check mr-5"></i> bambini</p>
-        <p id="elemVecchi"><i class="fas fa-check mr-5"></i> anziani</p>
-        <p id="elemfasciaMed"><i class="fas fa-check mr-5"></i> fascia media</p>
-        <p id="elemTotale"><i class="fas fa-check mr-5"></i> totale</p>
-        <p id="countDownElement"></p>
+        <p class="uppercase font-w600 mb-15">
+          Il biglietto di viaggio che hai prenotato:
+        </p>
+        <ul class="no-list-style">
+          <li class="mb-15">
+            <i class="fas fa-check mr-5"></i>
+            <span id="elemPercorso">tratta</span>
+          </li>
+          <li class="mb-15">
+            <i class="fas fa-check mr-5"></i>
+            <span id="elemkids">bambini</span>
+            <i class="far fa-hand-point-right mr-3"></i>
+            <span>20% off</span>
+          </li>
+          <li class="mb-15">
+            <i class="fas fa-check mr-5"></i>
+            <span id="elemVecchi">anziani</span>
+            <i class="far fa-hand-point-right mr-3"></i>
+            <span>40% off</span>
+          </li>
+          <li class="mb-15">
+            <i class="fas fa-check mr-5"></i>
+            <span id="elemfasciaMed">fascia media</span>
+          </li>
+          <li class="mb-15">
+            <span class="font-w600 font-s1e5rem" id="elemTotale">totale</span>
+            <i class="fas fa-euro-sign mr-3"></i>
+          </li class="mb-15">
+          <!-- countdown -->
+          <li class="mb-15" id="countDownElement"></li>
+          <!-- btn redo e pay -->
+        </ul>
         <div class="flex">
           <div
             id="pay"
-            class="flex-y align-items-center space-around w150px h80px p-5 mt-15 cursor-pointer border-rad5"
+            class="flex-y align-items-center space-around w150px h80px p-5 cursor-pointer border-rad5"
           >
             <i class="fab fa-cc-paypal display-block font-s2rem"></i>
             <p class="txt-center font-s1rem">Acquista</p>
           </div>
           <div
             id="redo"
-            class="flex-y align-items-center space-around w150px h80px p-5 mt-15 ml-30 cursor-pointer border-rad5"
+            class="flex-y align-items-center space-around w150px h80px p-5 ml-30 cursor-pointer border-rad5"
           >
             <i class="fas fa-redo display-block font-s2rem"></i>
             <p class="txt-center font-s1rem">ricominicia</p>
