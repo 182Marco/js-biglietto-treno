@@ -199,7 +199,7 @@ per entrata blocchi di testo */
 }
 
 /* MEDIA QUEIES */
-
+/* sotto 750px */
 @media screen and (max-width: 750px) {
   .pos-abs.left42.top50 h2,
   p,
@@ -235,10 +235,8 @@ per entrata blocchi di testo */
   .sceltaTratta.title-wrap {
     margin-left: 12.5vw;
   }
-  .app {
-    background-image: url('img/trainMobile.jpeg');
-  }
 }
+/* sotto 670px */
 @media screen and (max-width: 607px) {
   .pos-abs.left42.top50 h2,
   p,
@@ -276,11 +274,13 @@ per entrata blocchi di testo */
     margin-top: 40px;
   }
 }
+/* sotto 440 px */
 @media screen and (max-width: 440px) {
   .pos-abs.left42.top50 h2,
   p,
   ul li,
-  .pos-abs.left42.top50 label {
+  .pos-abs.left42.top50 label,
+  .sceltaTratta.fade-in {
     font-size: 1rem;
   }
   .sceltaTratta.no-list-style li .cursor-pointer,
